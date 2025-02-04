@@ -1,0 +1,1996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ExpenseDistributionReport" language="groovy" pageWidth="3060" pageHeight="1800" orientation="Landscape" columnWidth="3020" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0066513b-a133-4365-ab14-78f23baf18a6">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="717"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="total_subang1" uuid="ff7e317e-89be-4198-926d-d168559999c9">
+		<parameter name="C_Period_ID" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="AD_Client_ID" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="M_Warehouse_ID" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="AD_Org_ID" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Farm_Name" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[select *
+from z_expense_distribution_report_duck (
+ 	$P{C_Period_ID},
+ 	$P{Farm_Name}
+);]]>
+		</queryString>
+		<field name="farmname" class="java.lang.String"/>
+		<field name="s_qty_birds_ending_female" class="java.lang.Integer"/>
+		<field name="s_z_qty_birds_ending_male" class="java.lang.Integer"/>
+		<field name="s_qty_birds_total" class="java.lang.Integer"/>
+		<field name="s_z_week_in_grow" class="java.lang.Integer"/>
+		<field name="s_z_week_in_production" class="java.lang.Integer"/>
+		<field name="s_flock_grow_female" class="java.lang.Integer"/>
+		<field name="s_flock_grow_male" class="java.lang.Integer"/>
+		<field name="s_flock_prod_female" class="java.lang.Integer"/>
+		<field name="s_flock_prod_male" class="java.lang.Integer"/>
+		<field name="s_devider_flock_grow" class="java.lang.Integer"/>
+		<field name="s_devider_flock_prod" class="java.lang.Integer"/>
+		<field name="s_total_cost_dl" class="java.lang.Integer"/>
+		<field name="s_total_cost_fo" class="java.lang.Integer"/>
+		<field name="s_total_cost_rep_main" class="java.lang.Integer"/>
+		<field name="s_total_cost_depre" class="java.lang.Integer"/>
+		<field name="s_stat_farm_fo" class="java.lang.Integer"/>
+		<field name="s_stat_farm_rep_main" class="java.lang.Integer"/>
+		<field name="s_stat_depre" class="java.lang.Integer"/>
+		<field name="s_ins_control" class="java.lang.Integer"/>
+		<field name="s_flock_grow_cost_dl" class="java.lang.Integer"/>
+		<field name="s_flock_grow_cost_fo" class="java.lang.Integer"/>
+		<field name="s_flock_grow_cost_rm" class="java.lang.Integer"/>
+		<field name="s_flock_grow_cost_depre" class="java.lang.Integer"/>
+		<field name="s_flock_grow_cost_stat_foh" class="java.lang.Integer"/>
+		<field name="s_flock_grow_cost_stat_rpr" class="java.lang.Integer"/>
+		<field name="s_flock_grow_cost_stat_depre" class="java.lang.Integer"/>
+		<field name="s_flock_grow_cost_insurance" class="java.lang.Integer"/>
+		<field name="s_flock_prod_dl" class="java.lang.Integer"/>
+		<field name="s_flock_prod_fo" class="java.lang.Integer"/>
+		<field name="s_flock_prod_rm" class="java.lang.Integer"/>
+		<field name="s_flock_prod_depre" class="java.lang.Integer"/>
+		<field name="s_flock_prod_stat_foh" class="java.lang.Integer"/>
+		<field name="s_flock_prod_stat_rpr" class="java.lang.Integer"/>
+		<field name="s_flock_prod_stat_depre" class="java.lang.Integer"/>
+		<field name="s_flock_prod_cost_insurane" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="AD_Org_ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="AD_Client_ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="C_Period_ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="M_Warehouse_ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="BranchType" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CategoryName" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select *
+from z_expense_distribution_report_duck_main(
+    $P{AD_Client_ID},
+    $P{AD_Org_ID},
+    $P{M_Warehouse_ID},
+    $P{C_Period_ID},
+    $P{BranchType},
+    $P{CategoryName}
+);]]>
+	</queryString>
+	<field name="client_name" class="java.lang.String"/>
+	<field name="org_name" class="java.lang.String"/>
+	<field name="ad_client_id" class="java.lang.Integer"/>
+	<field name="ad_org_id" class="java.lang.Integer"/>
+	<field name="ad_org_id_2" class="java.lang.Integer"/>
+	<field name="periode" class="java.lang.String"/>
+	<field name="farm_name" class="java.lang.String"/>
+	<field name="data_month" class="java.lang.String"/>
+	<field name="totalweek" class="java.lang.Integer"/>
+	<field name="c_period_id" class="java.lang.Integer"/>
+	<field name="hen_house" class="java.lang.String"/>
+	<field name="age" class="java.lang.Integer"/>
+	<field name="breed" class="java.lang.String"/>
+	<field name="sexline" class="java.lang.String"/>
+	<field name="qty_birds_ending_female" class="java.lang.Integer"/>
+	<field name="z_qty_birds_ending_male" class="java.lang.Integer"/>
+	<field name="qty_birds_total" class="java.lang.Integer"/>
+	<field name="week_in_grow" class="java.lang.Integer"/>
+	<field name="week_in_prod" class="java.lang.Integer"/>
+	<field name="flock_grow_female" class="java.lang.Integer"/>
+	<field name="flock_grow_male" class="java.lang.Integer"/>
+	<field name="flock_prod_female" class="java.lang.Integer"/>
+	<field name="flock_prod_male" class="java.lang.Integer"/>
+	<field name="devider_flock_grow" class="java.lang.Integer"/>
+	<field name="devider_flock_prod" class="java.lang.Integer"/>
+	<field name="total_cost_dl" class="java.lang.Integer"/>
+	<field name="total_cost_fo" class="java.lang.Integer"/>
+	<field name="total_cost_rep_main" class="java.lang.Integer"/>
+	<field name="total_cost_depre" class="java.lang.Integer"/>
+	<field name="stat_farm_fo" class="java.lang.Integer"/>
+	<field name="stat_farm_rep_main" class="java.lang.Integer"/>
+	<field name="stat_depre" class="java.lang.Integer"/>
+	<field name="ins_control" class="java.lang.Integer"/>
+	<field name="flock_grow_cost_dl" class="java.lang.Integer"/>
+	<field name="flock_grow_cost_fo" class="java.lang.Integer"/>
+	<field name="flock_grow_cost_rm" class="java.lang.Integer"/>
+	<field name="flock_grow_cost_depre" class="java.lang.Integer"/>
+	<field name="flock_grow_cost_stat_foh" class="java.lang.Integer"/>
+	<field name="flock_grow_cost_stat_rpr" class="java.lang.Integer"/>
+	<field name="flock_grow_cost_stat_depre" class="java.lang.Integer"/>
+	<field name="flock_grow_cost_insurance" class="java.lang.Integer"/>
+	<field name="flock_prod_dl" class="java.lang.Integer"/>
+	<field name="flock_prod_fo" class="java.lang.Integer"/>
+	<field name="flock_prod_rm" class="java.lang.Integer"/>
+	<field name="flock_prod_depre" class="java.lang.Integer"/>
+	<field name="flock_prod_stat_foh" class="java.lang.Integer"/>
+	<field name="flock_prod_stat_rpr" class="java.lang.Integer"/>
+	<field name="flock_prod_stat_depre" class="java.lang.Integer"/>
+	<field name="flock_prod_cost_insurane" class="java.lang.Integer"/>
+	<field name="branchtype" class="java.lang.String"/>
+	<field name="categoryname" class="java.lang.String"/>
+	<group name="FarmName">
+		<groupExpression><![CDATA[$F{farm_name}]]></groupExpression>
+		<groupHeader>
+			<band height="178">
+				<staticText>
+					<reportElement x="0" y="120" width="50" height="58" uuid="57cd48d4-751e-4d99-973f-16e61f2c7d54"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[H H]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="80" y="120" width="131" height="58" uuid="eb117ece-b735-419c-b5e8-39c650c45fd6"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[BREED]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="342" y="120" width="221" height="38" uuid="1630e848-c37d-4d44-a580-3d10d993577e"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[QUANTITY BIRDS ENDING]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="342" y="158" width="74" height="20" uuid="0cd565d9-93db-4e69-9a5b-2be74aa4dd00"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Female]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="416" y="158" width="74" height="20" uuid="cdb1255c-9f79-48ca-b61c-e96eb81dca5f"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Male]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="490" y="158" width="73" height="20" uuid="c53e1d0d-c2d2-48ad-b500-a685b37363d7"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="563" y="158" width="74" height="20" uuid="3a805acb-ebb7-4811-bc54-073cce96092f"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Grw]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="637" y="158" width="74" height="20" uuid="2f19ba72-6d7f-4e20-b701-81c80e72b82f"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Prd]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="711" y="158" width="74" height="20" uuid="5e8eca7d-1bdb-4af0-b419-f4f92a9e7fb3"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Female]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="785" y="158" width="74" height="20" uuid="26dc13a8-b79b-43eb-a56c-759020e80451"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Male]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="859" y="158" width="74" height="20" uuid="09b37a7d-74f8-484b-8163-fb65139c148d"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Female]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="933" y="158" width="74" height="20" uuid="ac37ae19-7a89-4d5a-9adb-5092bfc8b081"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Male]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1007" y="140" width="74" height="38" uuid="57a925e5-73e3-46bb-ad90-3c4f40a43b46"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Flock Grow.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1081" y="140" width="74" height="38" uuid="9460badc-727d-4e86-bf38-c17c64031db4"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Flock Prod.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1155" y="140" width="74" height="38" uuid="f7f3c013-24cc-4d08-a936-21d5e6595485"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Direct Labor (611)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1229" y="140" width="74" height="38" uuid="b6656fc4-09b7-431b-9017-1ffdc1ccb4de"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Farm Overhead]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1303" y="140" width="74" height="38" uuid="0994cab8-8ead-4de6-ba69-cc1c26daf7fc"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Repair & Maintenance]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1377" y="140" width="75" height="38" uuid="5ff82b67-016b-4178-ae87-723932e8b152"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Depre. Expenses]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1452" y="140" width="75" height="38" uuid="84852f90-45fd-4e94-b74c-02a172070cb8"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Farm Overhead]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1527" y="140" width="74" height="38" uuid="90824354-59ec-4617-a61f-25696cadae12"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Repair & Maintenance]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1601" y="140" width="74" height="38" uuid="65c75c56-f91a-43de-80e9-a1e8006ec0e0"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Depre. Expenses]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1675" y="120" width="74" height="58" uuid="e604cd5a-b53f-48f5-a004-cf14114e91f2"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Insurance Control]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1823" y="140" width="74" height="38" uuid="fd68d10f-acdc-4291-b53d-84409af83173"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Farm Overhead]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1749" y="140" width="74" height="38" uuid="1beacb0c-db98-4cf1-adc5-27e79a13f99e"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Direct Labor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1897" y="140" width="74" height="38" uuid="d4d320e5-e19d-4c51-963b-99d2a2702bc5"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Repair & Maintenance]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2045" y="158" width="74" height="20" uuid="72010458-6c29-45fb-96d8-09e39413a0da"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[FOH]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1971" y="140" width="74" height="38" uuid="701b3ae9-bd23-49fa-9dbb-5582c7094f84"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Depre. Expenses]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2119" y="158" width="74" height="20" uuid="f0d36028-cb4c-4dfb-ac54-04a9d4e1d443"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[RPR/MAINT]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2341" y="140" width="74" height="38" uuid="d1f12c17-18bc-4e2a-8eb8-bc7227f07c42"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Direct Labor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2193" y="158" width="74" height="20" uuid="dfca9d1e-2ef1-4401-93ee-41d0de7e074a"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[DEPRE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2267" y="140" width="74" height="38" uuid="530525d4-7347-4d85-993f-967bee2e7a51"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Insurance Control]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2563" y="140" width="74" height="38" uuid="5200c40a-0ca2-4330-bc84-421f3d0b35f1"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Depre. Expenses]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2415" y="140" width="74" height="38" uuid="985cfde9-ae20-4035-b308-b05831b5d450"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Farm Overhead]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2489" y="140" width="74" height="38" uuid="bb52d534-e62c-4713-99cf-84a98b65d1a5"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Repair & Maintenance]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2637" y="158" width="74" height="20" uuid="55c97742-ed8b-4e61-b63d-8b210ae4bce5"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[FOH]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2711" y="158" width="74" height="20" uuid="4e5ca457-e224-4a49-b19b-e15fcba4d6d4"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[RPR/MAINT]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2785" y="158" width="74" height="20" uuid="1db1d85b-011d-4661-bb89-b389a12bdbcd"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[DEPRE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2859" y="140" width="74" height="38" uuid="25fbdd32-95d6-4dcc-a7e7-e09e6981fe4c"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Insurance Control]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2933" y="120" width="87" height="58" uuid="33e8066a-a6c5-4515-8398-5391f203207b"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Description]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2637" y="140" width="222" height="18" uuid="7b86ab51-68c3-4c7d-b933-dec53fa32b25"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[STATISTIK FARM]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2045" y="140" width="222" height="18" uuid="f2864062-c7f6-4050-8512-bceb2b3cf31c"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[STATISTIK FARM]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="859" y="140" width="148" height="18" uuid="6bd1ebaf-111e-4196-99c1-148e06129091"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Flock Producing]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="711" y="140" width="148" height="18" uuid="25c04f88-7685-44fd-93da-198eaf3b4237"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Flock Growing]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="711" y="120" width="296" height="20" uuid="2012035f-8325-42c0-809f-e80320af1692"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Transaction for this Month]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1007" y="120" width="148" height="20" uuid="fb9f2591-96b5-4fc5-abb2-a6e5aa136efd"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Devider]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1155" y="120" width="297" height="20" uuid="2dd223f9-ae63-49ab-9bd6-efb1f5af5df9"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[TOTAL COSTS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1452" y="120" width="223" height="20" uuid="40a75134-4772-4a6d-9221-cf823b7ca694"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[STATISTIK FARM]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1749" y="120" width="592" height="20" uuid="d10c24ed-b01e-4418-90f9-91ccd393a474"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[FLOCK GROWING COSTS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2341" y="120" width="592" height="20" uuid="5d0ba1d6-e5ec-43ae-9b2e-9044f12a5325"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[FLOCK PRODUCING COSTS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="563" y="120" width="148" height="38" uuid="2c2507ab-ba36-4f23-8c94-4468e5ed02d5"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Week In]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="50" y="120" width="30" height="58" uuid="62b24d26-c11b-4397-b996-2a940f4b796d"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[AGE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="211" y="120" width="131" height="58" uuid="ad3d99c2-9284-41ad-8f36-f63b5a88ab53"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[SEX LINE]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="711" y="100" width="296" height="20" uuid="d0efe4e0-60eb-496d-bdfc-e60f630c4222"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA["Total Week In This Month : " + $F{totalweek}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="20" width="563" height="20" uuid="4ecddf9c-34ad-40e4-927e-91c6069fe380"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Details of Flock Inventory, Direct Labor, & Factory Overhead  ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="0" width="711" height="20" uuid="33b78b5e-dc9d-47da-a4ed-164133a2cc0e"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{org_name} + " - " + $F{client_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="60" width="563" height="20" uuid="17622f82-04a0-4540-94ef-f83f69fac5c1"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["BRANCH TYPE  :     "+$F{branchtype}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="80" width="563" height="20" uuid="530fd4e6-f25f-4d32-81ce-d4aab9f20932"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["CATEGORY NAME  :   "+$F{categoryname}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="50" y="100" width="161" height="20" forecolor="#FF3333" uuid="fd17a5d2-c3a0-4f32-a3d7-a40b1b4ef40a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{data_month}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="100" width="50" height="20" uuid="6fb8e89e-4bc4-4cbc-bb8d-888b55a69b61"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Month]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="29">
+				<textField>
+					<reportElement x="0" y="0" width="342" height="20" uuid="2c956439-420d-458d-83d6-4288db47b8af"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA["TOTAL " + $F{farm_name}]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement key="table" isPrintRepeatedValues="false" x="342" y="0" width="2591" height="20" isPrintInFirstWholeBand="true" uuid="9028751d-45df-4d2c-b78a-60543e5cf8fe"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="total_subang1" uuid="3e528241-57b0-43bb-8f3b-f50ace31b2d4">
+							<datasetParameter name="AD_Org_ID">
+								<datasetParameterExpression><![CDATA[$F{ad_org_id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="M_Warehouse_ID">
+								<datasetParameterExpression><![CDATA[$F{ad_org_id_2}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="AD_Client_ID">
+								<datasetParameterExpression><![CDATA[$F{ad_client_id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="C_Period_ID">
+								<datasetParameterExpression><![CDATA[$F{c_period_id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="Farm_Name">
+								<datasetParameterExpression><![CDATA[$F{farm_name}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="74" uuid="a31be127-23b8-477c-9ee1-fe3b42fc9dad">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="3036f461-fda1-4c8e-9826-a76deeda8db7"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_qty_birds_ending_female}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="0d4f7197-ac70-4a67-803f-9ecdb560c239">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="a129d802-bc21-4d25-87cd-a2d859e4d7b9"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_z_qty_birds_ending_male}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="73" uuid="1623a444-5522-44e2-940f-9c7cf33c45db">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="73" height="20" uuid="a22a83f7-7183-419b-9dc4-31b2a9ef95ef"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_qty_birds_total}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="1d3d3788-0a72-477e-b6fc-8756713f8f4c">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="006742d2-67fb-4857-8007-d53fbab3f6fa"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_z_week_in_grow}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="f01a399a-a2e6-49f9-88bc-bb826f12140f">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="15250e09-40ae-4937-aea0-9c0e7a7e9922"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_z_week_in_production}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="fee978e1-cb7a-4706-be18-753fa7a6cae3">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="abdfc291-e0c7-4b71-82f9-eeda8a80a3b8"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_grow_female}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="6210770a-472b-4882-8108-84d899fa11a7">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="249a4ba7-6f33-4013-8c0e-9fe11e76d4d4"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_grow_male}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="e5716ebd-18fe-4400-af88-bbabfdd27323">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="72a8c01e-3f1e-48d2-966d-f2a4f8083a8a"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_prod_female}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="2ed2af27-0517-445b-81c9-8dd16495bb60">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="29914c96-9156-4943-83d2-6c7d27214ac2"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_prod_male}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="1ff23535-2f40-4700-97d1-f0005d63a8f6">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="fc73c238-b3f1-4842-93ad-d185062f2e61"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_devider_flock_grow}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="a62fab4b-779f-4b51-9092-f076cf448763">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="3e7bff3a-62e3-4465-8630-ffd2900f1401"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_devider_flock_prod}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="247e15e7-37bb-4ec7-905e-2c5e2678f565">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="5899141b-2349-4165-9d90-e27c4cbb2037"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_total_cost_dl}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="24a03518-4c4e-473a-991c-83160018562f">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="2926f002-5f67-4bce-8d39-8fed9c68283f"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_total_cost_fo}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="faa8fbb6-f455-442c-9173-68cd02dbd111">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="f2b158b5-a2d0-4bbb-b2f2-495c63219aaa"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_total_cost_rep_main}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="75" uuid="8c4e7dcd-fd5d-48b6-8a47-1f3a057255ae">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="75" height="20" uuid="a53bb20a-afed-4d21-bf5e-e010271f9b47"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_total_cost_depre}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="75" uuid="24c66cfd-95e0-4172-9bef-88088c672f80">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="75" height="20" uuid="3d418b9d-3807-4016-930c-5f2a119aaf37"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_stat_farm_fo}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="b66830b1-ede9-471a-85b1-f387e25872bc">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="242e0e9d-5cfa-4e3c-a814-0058fbef591b"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_stat_farm_rep_main}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="50e9368d-7201-49ea-9b98-6a2ab1d762c4">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="fe1b7970-d5d2-4776-9d61-d087eeec1563"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_stat_depre}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="1e514cf9-575a-4607-9bd0-9973c38e65bb">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="ce29aee7-bf42-4481-947b-e3d47d642700"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_ins_control}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="99646e3f-b3f7-4ba9-8b6b-5a19256bbc56">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="b6a06572-ebb6-4458-b18d-bed425ca5238"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_grow_cost_dl}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="015c63e0-1cb9-4243-8537-ef2c3eb899e5">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="7045fb28-4133-4786-8249-222c8c727e50"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_grow_cost_fo}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="dd47d5ee-77b5-4326-b4bb-7c2a4a7e86e7">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="26e7594a-0738-42f8-a541-bbc66d73311e"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_grow_cost_rm}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="de1775c9-0b78-4954-98ba-2bf20edd949d">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="09f40d3a-0916-46c4-aa20-c869138f9e82"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_grow_cost_depre}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="5af0b021-ea78-44dc-aa45-26920ba9b4db">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="c2e2fc3c-beed-49d8-945a-a3c28e4916b5"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_grow_cost_stat_foh}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="a6b43e19-d3af-4584-b7c4-4da4709fa9af">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="924498d6-a48d-4576-8e39-cd45428f6540"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_grow_cost_stat_rpr}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="34e47b34-2e93-41a4-a2b3-66005138dc8f">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="b66625ee-5454-449a-af25-9a105b72e3de"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_grow_cost_stat_depre}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="2ab48047-dec5-421e-8396-2527fd217adf">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="2923c9e7-5763-41f9-b7c5-d97bbf7eb3f3"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_grow_cost_insurance}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="b7809314-176b-46b6-abc4-e9fc9888817e">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="a152e298-a5a3-46d4-92de-ed23d7d0b556"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_prod_dl}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="d2d86684-50bf-48ae-b3a8-d4a6b897051c">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="fbc0bca9-b290-4c3e-9448-dfb5619b685d"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_prod_fo}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="38b0db25-02ee-41a6-a025-a521d93bb651">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="59fcfc56-b8c1-4073-84ff-8afca444702c"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_prod_rm}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="0b2ed17d-3d5b-4189-924c-a01af9d23f29">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="2971f13d-5cf5-463a-aa89-34365a207169"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_prod_depre}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="4b13bea6-c670-4276-8bf6-685463813f81">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="8ecb07c7-6d02-4206-953a-9fcb93b46f9f"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_prod_stat_foh}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="24bef77e-1f97-4f88-ab5a-1f5a13ecb992">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="41b970a9-0d26-44f1-a2ca-e469943f61f3"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_prod_stat_rpr}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="5e99cccb-bdd0-4afc-bcb3-277ea3b251b3">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="81fc8525-4244-4413-a549-a45e6d838a53"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_prod_stat_depre}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="74" uuid="4c7ed88f-82c8-4b93-91d6-ff9b6df3fdc3">
+							<jr:detailCell height="20" rowSpan="1">
+								<textField pattern="#,##0">
+									<reportElement x="0" y="0" width="74" height="20" uuid="69c68d1d-d132-4732-b4c6-297d10b73c25"/>
+									<box>
+										<pen lineWidth="0.75"/>
+										<topPen lineWidth="0.75"/>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{s_flock_prod_cost_insurane}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<staticText>
+					<reportElement x="2933" y="0" width="87" height="20" uuid="4bc52041-485b-446a-850e-e92bf0040112"/>
+					<box>
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<break>
+					<reportElement x="0" y="25" width="100" height="1" uuid="f6924739-a5ff-4aff-922b-239886be6a36"/>
+				</break>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="0" width="131" height="22" uuid="b2b7f4a1-8426-4086-878c-c252b2962510">
+					<printWhenExpression><![CDATA[$F{breed} == null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="0" width="131" height="22" uuid="78421f27-affe-440b-aaf5-b68c9604ba2d">
+					<printWhenExpression><![CDATA[$F{sexline} == null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="0" width="50" height="22" uuid="8452a30b-eead-466d-8633-d25653a2815a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{hen_house}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="0" width="30" height="22" uuid="b5249036-d9db-4d75-a02f-6fad726d22ce"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{age}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="416" y="0" width="74" height="22" uuid="c7141a1f-584a-47d0-9d4a-f9dde47104a5"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{z_qty_birds_ending_male}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="490" y="0" width="73" height="22" uuid="500f5803-e53d-4b8c-b0b8-0356f2584e16"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{qty_birds_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="563" y="0" width="74" height="22" uuid="41755c56-adad-47b1-a207-d94a1233657e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{week_in_grow}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="637" y="0" width="74" height="22" uuid="6c2b90fc-3a34-46b0-bcb1-4607ea59fe7a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{week_in_prod}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="711" y="0" width="74" height="22" uuid="7b56bdf5-fce6-4c70-99e8-284129cc37ac"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_grow_female}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="785" y="0" width="74" height="22" uuid="cc32294c-6376-4550-afeb-fd10cf6f4821"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_grow_male}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="859" y="0" width="74" height="22" uuid="0879f904-ddf5-4a59-aac0-d0fb15f8f54e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_prod_female}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="933" y="0" width="74" height="22" uuid="8bd5976a-835a-4083-adc2-acb7bbe41ef0"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_prod_male}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1007" y="0" width="74" height="22" uuid="8626ac38-0bdc-4cae-b1b7-37e84511c0b0"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{devider_flock_grow}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1081" y="0" width="74" height="22" uuid="5300b972-d45a-45be-87c7-fed4c1f4c3b8"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{devider_flock_prod}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1155" y="0" width="74" height="22" uuid="05d708aa-4d81-4058-912f-bd6c5351da22"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total_cost_dl}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1229" y="0" width="74" height="22" uuid="ecb9666b-8d11-4f9b-b4a7-bc896117c67c"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total_cost_fo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1377" y="0" width="75" height="22" uuid="a4e3d763-b92a-4618-a899-e1a282842314"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total_cost_depre}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1303" y="0" width="74" height="22" uuid="1664604e-bd7f-4417-a72e-813b761cf8b6"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total_cost_rep_main}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1452" y="0" width="75" height="22" uuid="f10a588c-0372-4228-86d1-390143de97ec"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{stat_farm_fo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1527" y="0" width="74" height="22" uuid="e0751620-eb4d-431b-94cb-585f3802b449"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{stat_farm_rep_main}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1601" y="0" width="74" height="22" uuid="9d79cbef-6db7-4790-bf85-e4c21be586d1"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{stat_depre}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1675" y="0" width="74" height="22" uuid="8d17df18-a6af-4da2-9999-2d7877f5b688"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ins_control}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1749" y="0" width="74" height="22" uuid="6d6e86a0-4025-4a66-9f17-3ae44d8645d8"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_grow_cost_dl}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1823" y="0" width="74" height="22" uuid="8e373817-fa5d-4a6a-8965-6dcaaa316cdc"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_grow_cost_fo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1897" y="0" width="74" height="22" uuid="a5f4774b-3434-4b04-88cf-8fabf77e99b3"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_grow_cost_rm}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="1971" y="0" width="74" height="22" uuid="7ce87195-ef2f-442c-a34b-b47725b98a78"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_grow_cost_depre}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2045" y="0" width="74" height="22" uuid="efca1759-36cc-4fc2-aeb0-653bd88e910a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_grow_cost_stat_foh}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2119" y="0" width="74" height="22" uuid="a7faeec6-681d-42f9-b0aa-8de8ffbb6d30"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_grow_cost_stat_rpr}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2193" y="0" width="74" height="22" uuid="06d16d7b-76b5-49ac-8823-1be842796d9e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_grow_cost_stat_depre}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2267" y="0" width="74" height="22" uuid="6aad18d0-0e8f-45d1-8a95-7338df037a3a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_grow_cost_insurance}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2341" y="0" width="74" height="22" uuid="19258f24-50ea-433e-9110-a443577cbf57"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_prod_dl}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2415" y="0" width="74" height="22" uuid="365a1faf-574b-4184-a6d5-ba7ae2c6c2f4"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_prod_fo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2489" y="0" width="74" height="22" uuid="bad7c0f5-34c6-4453-8f11-57928bd0c1ea"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_prod_rm}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2563" y="0" width="74" height="22" uuid="379ccc1f-1c79-4782-97c5-698ce72ada21"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_prod_depre}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2711" y="0" width="74" height="22" uuid="7469f0e2-a233-489d-8966-b410e6aad949"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_prod_stat_rpr}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2637" y="0" width="74" height="22" uuid="150d201a-adb6-4569-9ffc-362e36d41a8f"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_prod_stat_foh}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2785" y="0" width="74" height="22" uuid="8d09d297-7875-48f6-ac51-4e7ab885718a"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_prod_stat_depre}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="2859" y="0" width="74" height="22" uuid="3ce18998-0f04-4547-b2f9-938ebd28f2b1"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{flock_prod_cost_insurane}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2933" y="0" width="87" height="22" uuid="f91fc33e-587d-4569-8aa7-2073307b9304"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="342" y="0" width="74" height="22" uuid="328ca63c-8069-4ccc-ab1f-47f472de19d4"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{qty_birds_ending_female}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="211" y="0" width="131" height="22" uuid="1fbe2759-d0d5-4dd4-85a4-22692d592596">
+					<printWhenExpression><![CDATA[$F{sexline} != null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sexline}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="80" y="0" width="131" height="22" uuid="aca7b5f5-b158-4421-b4b4-a337bc8408ef">
+					<printWhenExpression><![CDATA[$F{breed} != null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{breed}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,50 @@
+--drop function z_data_purchase_order_json();
+
+create or replace function z_data_purchase_order_json()
+returns json
+as $function$
+
+declare
+	results json;
+
+begin
+	select json_build_object(
+		'docNameBatch', json_agg(
+            json_build_object(
+                'lines', json_build_object(
+                    'docno', documentno,
+                    'product', m_product_id,
+                    'qtyentered', qtyentered,
+                    'qtyordered', qtyordered,
+                    'qrtreserved', qtyreserved,
+                    'UOM', c_uom_id,
+                    'qtydelivered', qtydelivered,
+                    'qtyinvoiced', qtyinvoiced,
+                    'priceentered', priceentered,
+                    'priceactual', priceactual,
+                    'pricelist', pricelist,
+                    'tax', c_tax_id
+                ),
+                'client', ad_client_id,
+                'org', ad_org_id,
+                'doctype', c_doctypetarget_id,
+                'prodcat', m_product_category_id,
+                'dateordered', to_char(dateordered, 'DD/MM/YYYY'),
+                'bpartner', c_bpartner_id,
+                'warehouse', m_warehouse_id,
+                'pricelist', m_pricelist_id,
+                'currency', c_currency_id,
+                'costcenter', user1_id,
+                'totallines', totallines,
+                'docstatus', docstatus,
+                'docno', documentno
+            )
+        ),
+        'collectionName', 'in'
+	) 
+	into results
+	from z_select_data_purchase_order();
+
+	return results;
+end;
+$function$ language plpgsql;
